@@ -15,6 +15,7 @@
 #include <QDebug>
 #include <QThread>
 #include <QFileDialog>
+#include <QMenu>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -45,6 +46,8 @@ public slots:
     void oldFileNameSlot(const QString & oldName);
     void newFileNameSlot(const QString & newName);
 
+    void delActionFeedbackSlot(bool flag);
+
 private slots:
     void btnMaxClickedSlot();
     void btnMinClickedSlot();
@@ -53,6 +56,8 @@ private slots:
     void selectDirClickedSlot();
     void btnConfirmClickedSlot();
 
+    void on_listWidget_customContextMenuRequested(const QPoint &pos);
+
 private:
     Ui::Widget *ui;
     Rename * renameFile;
@@ -60,6 +65,9 @@ private:
 
     QPoint mousePosInWindow = QPoint();
     bool confirmFlag = false;
+
+    QAction *delAction;
+    QAction *openAction;
 
 
 };

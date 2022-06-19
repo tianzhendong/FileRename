@@ -67,6 +67,24 @@ Widget::Widget(QWidget *parent)
 
     connect(ui->btnConfirm, SIGNAL(clicked()),
             this, SLOT(btnConfirmClickedSlot()));
+
+    ui->listWidget_2->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->listWidget_2, SIGNAL(customContextMenuRequested(const QPoint &)),
+            this, SLOT(on_listWidget_customContextMenuRequested(const QPoint &)));
+
+    delAction = new QAction();
+    delAction->setText("删除文件");
+    openAction = new QAction();
+    openAction->setText("打开文件目录");
+
+    connect(delAction, SIGNAL(triggered(bool)),
+            renameFile, SLOT(delActionTriggeredSlot()));
+    connect(ui->listWidget_2, SIGNAL(currentTextChanged(const QString &)),
+            renameFile, SLOT(getTextSlot(const QString &)));
+    connect(openAction, SIGNAL(triggered(bool)),
+            renameFile, SLOT(openDirSlot()));
+    connect(renameFile, SIGNAL(delActionFeedbackSignal(bool)),
+            this, SLOT(delActionFeedbackSlot(bool)));
 }
 
 Widget::~Widget()
@@ -74,6 +92,8 @@ Widget::~Widget()
     renameFile->deleteLater();
     myThread->exit();
     myThread->wait(10 * 1000);
+    openAction->deleteLater();
+    delAction->deleteLater();
     delete ui;
 }
 
@@ -194,6 +214,38 @@ void Widget::btnConfirmClickedSlot() {
     confirmFlag = true;
 }
 
+void Widget::on_listWidget_customContextMenuRequested(const QPoint &pos)
+{
+//    ui->listWidget_2->currentTextChanged()
+    QMenu *menu = new QMenu(this);
+//    menu->addAction(ui->actionAdd);
+//    menu->addAction(ui->actionClear);
+//    menu->addAction(ui->actionDelete);
+//    menu->addAction(ui->actionInsert);
+
+    menu->addAction(this->openAction);
+    menu->addAction(this->delAction);
+//    menu->addSeparator();
+
+//    menu->addAction(ui->actionInit);
+//    menu->addSeparator();
+//    menu->addAction(ui->actionSelAll);
+//    menu->addAction(ui->actionSelInv);
+//    menu->addAction(ui->actionSelNone);
+//    menu->addAction(ui->actionSelPopMenu);
+    menu->exec(QCursor::pos());
+    delete  menu;
+}
+
+void Widget::delActionFeedbackSlot(bool flag) {
+    if(flag){
+        qDebug()<<"remove item";
+        QListWidgetItem * item = ui->listWidget_2->currentItem();
+        qDebug()<<item;
+        ui->listWidget_2->removeItemWidget(item);
+        delete item;
+    }
+}
 
 
 

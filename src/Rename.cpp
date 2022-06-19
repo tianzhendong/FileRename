@@ -3,6 +3,7 @@
 //
 #include <QDateTime>
 #include "Rename.h"
+#include <QProcess>
 
 Rename::Rename(QObject *) {
 
@@ -119,5 +120,26 @@ void Rename::checkBoxChangedSlot(int) {
 void Rename::comboxStateChangedSlot(const QString & text) {
     renameMethodFlag = text;
     qDebug()<< renameMethodFlag;
+}
+
+void Rename::getTextSlot(const QString &text) {
+    qDebug()<<"widget当前的text为："<< text;
+    currentText = text;
+}
+
+void Rename::openDirSlot() {
+    QFileInfo fileInfo(currentText);
+    QString filePath = fileInfo.absolutePath();
+    qDebug()<<"filePath"<<filePath;
+    QString path = filePath.replace("/", "\\");
+    qDebug()<<"path"<<path;
+    QProcess::startDetached("explorer " + path);
+}
+
+void Rename::delActionTriggeredSlot() {
+    QFile file(currentText);
+    qDebug()<<"即将删除："<<currentText;
+    emit delActionFeedbackSignal(file.remove());
+    qDebug()<<"删除成功";
 }
 

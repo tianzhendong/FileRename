@@ -23,8 +23,9 @@ signals:
     void oldFileNameSignal(const QString &);
     void newFileNameSignal(const QString &);
     void process(const int &, const int &);
-
     void singleFileSignal(const QString &);
+
+    void delActionFeedbackSignal(bool delFlag);
 
 
 
@@ -33,6 +34,10 @@ public slots:
     void renameFileSlot(const QString &filePath, const QString &strReplaced, const QString &strNew);
     void checkBoxChangedSlot(int );
     void comboxStateChangedSlot(const QString &);
+
+    void openDirSlot();
+    void delActionTriggeredSlot();
+    void getTextSlot(const QString &text);
 
 private:
     void renameFile(const QString &filePath, const QString &strReplaced, const QString &strNew);
@@ -43,6 +48,9 @@ private:
 
     QString renameMethodFlag = "替换";
     QStringList dirFiles = QStringList();
+
+    QString currentText = "";
+
 };
 
 
