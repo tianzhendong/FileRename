@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="img">
+        <file>favicon.ico</file>
+    </qresource>
+    <qresource prefix="png">
+        <file>close.png</file>
+        <file>fullscreen3.png</file>
+        <file>fullscreen4.png</file>
+        <file>min.png</file>
+    </qresource>
+</RCC>

@@ -18,17 +18,20 @@ find_package(Qt5 COMPONENTS
         Widgets
         REQUIRED)
 
-include_directories(resources
-        src)
+# 添加qrc资源
+qt5_add_resources(QRC_FILES resources/img.qrc)
+
+#include_directories(resources
+#        src)
 
 IF (CMAKE_BUILD_TYPE STREQUAL Debug)
     add_executable(${PROJECT_NAME}
             resources/app_win32.rc
-            ${DIR_MAIN_SRCS} ${DIR_RESOURCES_SRCS} ${DIR_SRC_SRCS})
+            ${DIR_MAIN_SRCS} ${DIR_RESOURCES_SRCS} ${DIR_SRC_SRCS} ${QRC_FILES})
 else(CMAKE_BUILD_TYPE STREQUAL Release)
     add_executable(${PROJECT_NAME}
             WIN32 resources/app_win32.rc
-            ${DIR_MAIN_SRCS} ${DIR_RESOURCES_SRCS} ${DIR_SRC_SRCS})
+            ${DIR_MAIN_SRCS} ${DIR_RESOURCES_SRCS} ${DIR_SRC_SRCS} ${QRC_FILES})
 ENDIF()
 
 target_link_libraries(${PROJECT_NAME}
