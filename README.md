@@ -32,7 +32,10 @@
 当前文件夹有重复文件时，在新名后加“-旧名”字符串
 
 ## 使用
-deploy目录下为生成的程序，可以直接使用
+
+[v1.0.2 windows release](https://github.com/tianzhendong/FileRename/releases/download/v1.0.2/FileRename.zip
+)
+
 ### 替换模式
 - 输入新旧字符串，选择替换模式，点击确认
 - 选择文件或者文件夹
