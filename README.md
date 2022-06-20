@@ -1,5 +1,5 @@
 # 文件重命名工具
-![](./assets/img.png)
+![](screenshoot/img_3.png)
 ## 环境
 - Clion 2022.1.2
 - qt 5.14.2
@@ -31,25 +31,32 @@
 ## 重复文件处理
 当前文件夹有重复文件时，在新名后加“-旧名”字符串
 
-## 使用
+## Release
 
-[v1.0.2 windows release](https://github.com/tianzhendong/FileRename/releases/download/v1.0.2/FileRename.zip
+### windows
+[windowsRelease-v1.0.2](https://github.com/tianzhendong/FileRename/releases/download/v1.0.2/FileRename.zip
+)
+
+[windowsRelease-v1.0.3](https://github.com/tianzhendong/FileRename/releases/download/v1.0.3/windowsRelease-v1.0.3.zip
 )
 
 ### 替换模式
 - 输入新旧字符串，选择替换模式，点击确认
 - 选择文件或者文件夹
-![](./assets/img_2.png)
+![](screenshoot/img_4.png)
 
 ### 时间戳模式
 - 选择时间戳模式，点击确认
 - 选择文件或者文件夹
 
-![](./assets/img_1.png)
+![](screenshoot/img_5.png)
 
 ## 更改日志
 ### 20220620 v1.0.2
 - [x] 新增打开文件目录功能（右下角listwidget支持）
 - [x] 新增删除文件功能（右下角listwidget支持）
+
+### 20220620 v1.0.3
+- [x] 修改UI
 
 

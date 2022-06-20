@@ -19,7 +19,7 @@ find_package(Qt5 COMPONENTS
         REQUIRED)
 
 # 添加qrc资源
-qt5_add_resources(QRC_FILES resources/img.qrc)
+#qt5_add_resources(QRC_FILES resources/img.qrc)
 
 #include_directories(resources
 #        src)
