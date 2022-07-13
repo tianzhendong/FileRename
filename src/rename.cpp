@@ -2,7 +2,7 @@
 // Created by 12038 on 2022/6/16.
 //
 #include <QDateTime>
-#include "Rename.h"
+#include "rename.h"
 #include <QProcess>
 
 Rename::Rename(QObject *) {

@@ -31,14 +31,31 @@
 ## 重复文件处理
 当前文件夹有重复文件时，在新名后加“-旧名”字符串
 
-## Release
-
+## 使用
 ### windows
+
 [windowsRelease-v1.0.2](https://github.com/tianzhendong/FileRename/releases/download/v1.0.2/FileRename.zip
 )
 
 [windowsRelease-v1.0.3](https://github.com/tianzhendong/FileRename/releases/download/v1.0.3/windowsRelease-v1.0.3.zip
 )
+
+### linux
+
+修改CmakeLists.txt中的qt路径：
+
+set(CMAKE_PREFIX_PATH "/home/tian/Qt5.12.9/5.12.9/gcc_64")
+
+执行：
+
+```bash
+mkdir build
+cd build
+cmake ..
+make
+FileRename
+```
+
 
 ### 替换模式
 - 输入新旧字符串，选择替换模式，点击确认

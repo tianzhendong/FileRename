@@ -2,3 +2,5 @@
 /cmake-build-release/
 /.idea/
 /windeploy/
+*.user
+build

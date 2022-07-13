@@ -6,7 +6,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.14.2/5.14.2/mingw73_64")
+set(CMAKE_PREFIX_PATH "/home/tian/Qt5.12.9/5.12.9/gcc_64")
 
 aux_source_directory(${PROJECT_SOURCE_DIR} DIR_MAIN_SRCS)
 aux_source_directory(${PROJECT_SOURCE_DIR}/resources DIR_RESOURCES_SRCS)
